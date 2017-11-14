@@ -11,7 +11,7 @@ if (process.env.CI) {
     git().silent(true)
       .clone(repoURL, localFolder)
       .then(() => git(localFolder).checkout('heroku'))
-      .then(() => del([`${localFolder}/**/*`]))
+      .then(() => del([`${localFolder}/**/*`, path.resolve(process.cwd(), '.travis.yml')]))
       .then(() => fs.copy(process.cwd(), localFolder))
       .then(() => git(localFolder).add(['--all', '.']))
       .then(() => git(localFolder).commit('heroku updated'))
