@@ -21,11 +21,13 @@
     "test-update": "grommet check -t -- --updateSnapshot",
     "test-watch": "grommet check -t -- --watchAll",
     "release-heroku": "babel-node ./tools/release-heroku",
-    "start": "npm run dist-server && npm run dist && node ./dist-server/server.js"
+    "start": "node ./dist-server/server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
     "github-org-stats": "^0.1.0",
     "grommet": "https://github.com/grommet/grommet/tarball/NEXT-stable",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
@@ -82,8 +84,5 @@
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](dist|templates|node_modules)[/\\\\]"
     ]
-  },
-  "pre-commit": [
-    "check"
-  ]
+  }
 }
