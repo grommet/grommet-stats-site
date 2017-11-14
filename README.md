@@ -1,5 +1,7 @@
 # grommet-stats-site
 
+This is the source code for the grommet org stats
+
 To run this application, execute the following commands:
 
   1. Install NPM modules
