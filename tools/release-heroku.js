@@ -18,9 +18,9 @@ if (process.env.CI) {
       .then(() => fs.copy(localDist, path.join(localFolder, 'dist')))
       .then(() => fs.copy(localDistServer, path.join(localFolder, 'dist-server')))
       .then(() => fs.copy(localPackage, path.join(localFolder, 'package.json')))
-      // .then(() => git(localFolder).add(['--all', '.']))
-      // .then(() => git(localFolder).commit('heroku updated'))
-      // .then(() => git(localFolder).push('origin', 'heroku'))
+      .then(() => git(localFolder).add(['--all', '.']))
+      .then(() => git(localFolder).commit('heroku updated'))
+      .then(() => git(localFolder).push('origin', 'heroku'))
       .catch(err => console.error('failed: ', err));
   });
 } else {
