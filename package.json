@@ -21,7 +21,7 @@
     "test-update": "grommet check -t -- --updateSnapshot",
     "test-watch": "grommet check -t -- --watchAll",
     "release-heroku": "babel-node ./tools/release-heroku",
-    "start": "npm run dist-server && npm run dist && node ./dist-server/server.js"
+    "start": "node ./dist-server/server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

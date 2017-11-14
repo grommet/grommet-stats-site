@@ -1,7 +1,0 @@
-node_modules/**
-dist/**
-<<<<<<< HEAD
-=======
-dist-server/**
->>>>>>> New site
-coverage/**
