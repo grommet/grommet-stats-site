@@ -5,6 +5,7 @@ import App from 'grommet/components/App';
 import Box from 'grommet/components/Box';
 import Header from 'grommet/components/Header';
 import Title from 'grommet/components/Title';
+import Footer from './components/Footer';
 
 import { browserHistory } from 'react-router';
 
@@ -32,6 +33,7 @@ const Main = props => (
     <Box pad={{ horizontal: 'medium' }}>
       {props.children}
     </Box>
+    <Footer/>
   </App>
 );
 

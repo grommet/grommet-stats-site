@@ -1,6 +1,5 @@
 # grommet-stats-site
 
-This is a sample Grommet application for reference.
 
 To run this application, execute the following commands:
 

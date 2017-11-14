@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Paragraph, Section } from 'grommet'
+import { Heading, Paragraph, Section } from 'grommet';
 
 export default () => (
   <Section primary={true}>
