@@ -1,6 +1,5 @@
 # grommet-stats-site
 
-
 To run this application, execute the following commands:
 
   1. Install NPM modules
