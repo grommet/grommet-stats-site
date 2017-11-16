@@ -7,7 +7,7 @@ export function parseJSON(response) {
   if (response.ok) {
     return response.json();
   }
-  return Promise.reject(response);
+  return response.text().then(message => Promise.reject(message));
 }
 
 export const getStats = () => {

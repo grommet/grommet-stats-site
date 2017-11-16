@@ -13,7 +13,7 @@ export default class Dashboard extends Component {
   componentDidMount() {
     getStats().then(
       stats => this.setState({ stats, error: undefined, loading: false }),
-      error => this.setState({ stats: undefined, error, loading: false })
+      error => this.setState({ stats: undefined, error, loading: false }),
     );
   }
   render() {
@@ -27,7 +27,7 @@ export default class Dashboard extends Component {
         </Box>
       );
     } else if (error) {
-      content = JSON.stringify(error, null, 2);
+      content = error;
     } else {
       content = (
         <Box direction='row' align='center'>
@@ -38,6 +38,7 @@ export default class Dashboard extends Component {
 
     return (
       <Grommet>
+        <Heading level={2}># Stars</Heading>
         {content}
       </Grommet>
     );

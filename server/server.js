@@ -20,7 +20,14 @@ const app = express()
 
 app.get('/api/stats', (req, res) => {
   const githubOrgStats = new GithubOrgStats(GITHUB_TOKEN, GITHUB_ORGANIZATION);
-  githubOrgStats.get().then(result => res.send(result));
+  githubOrgStats
+    .authenticate()
+    .then(() => githubOrgStats.get())
+    .then(result => res.send(result))
+    .catch((error) => {
+      console.log(error);
+      res.status(403).send('You do not have a valid token');
+    });
 });
 
 // UI
