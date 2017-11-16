@@ -42,8 +42,13 @@ var app = (0, _express2.default)().use((0, _compression2.default)()).use((0, _co
 
 app.get('/api/stats', function (req, res) {
   var githubOrgStats = new _githubOrgStats2.default(GITHUB_TOKEN, GITHUB_ORGANIZATION);
-  githubOrgStats.get().then(function (result) {
+  githubOrgStats.authenticate().then(function () {
+    return githubOrgStats.get();
+  }).then(function (result) {
     return res.send(result);
+  }).catch(function (error) {
+    console.log(error);
+    res.status(403).send('You do not have a valid token');
   });
 });
 
