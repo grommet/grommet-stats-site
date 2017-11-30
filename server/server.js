@@ -8,9 +8,16 @@ import path from 'path';
 
 import GithubOrgStats from 'github-org-stats';
 
+const MOCK_API = process.env.MOCK_API;
 const PORT = process.env.PORT || 8102;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_ORGANIZATION = process.env.GITHUB_ORGANIZATION || 'grommet';
+
+let githubOrgStats;
+if (!MOCK_API) {
+  githubOrgStats = new GithubOrgStats(GITHUB_TOKEN, GITHUB_ORGANIZATION);
+  githubOrgStats.authenticate();
+}
 
 const app = express()
   .use(compression())
@@ -19,15 +26,18 @@ const app = express()
   .use(bodyParser.json());
 
 app.get('/api/stats', (req, res) => {
-  const githubOrgStats = new GithubOrgStats(GITHUB_TOKEN, GITHUB_ORGANIZATION);
-  githubOrgStats
-    .authenticate()
-    .then(() => githubOrgStats.get())
+  if (MOCK_API) {
+    res.send({
+      totalStars: 100000,
+    });
+  } else {
+    githubOrgStats.get()
     .then(result => res.send(result))
     .catch((error) => {
       console.log(error);
       res.status(403).send('You do not have a valid token');
     });
+  }
 });
 
 // UI

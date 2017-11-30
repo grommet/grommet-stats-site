@@ -12,8 +12,9 @@
   "license": "Apache-2.0",
   "scripts": {
     "check": "cross-env NODE_ENV=test grommet check",
-    "dev-server-watch": "nodemon ./server/dev",
     "dev-server": "babel-node ./server/dev",
+    "dev-server-mock": "cross-env MOCK_API=true babel-node ./server/dev",
+    "dev-server-watch": "nodemon ./server/dev",
     "dev": "cross-env NODE_ENV=development grommet pack",
     "dist": "cross-env NODE_ENV=production grommet pack",
     "dist-server": "babel -d ./dist-server ./server -s",
