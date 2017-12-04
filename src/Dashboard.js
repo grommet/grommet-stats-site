@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Box, Grommet, Heading } from 'grommet';
+import { Box, Grommet, Heading, Paragraph } from 'grommet';
 
 import { getStats } from './api';
 
@@ -30,15 +30,15 @@ export default class Dashboard extends Component {
       content = error;
     } else {
       content = (
-        <Box direction='row' align='center'>
-          <Heading>{stats.totalStars}</Heading> stars
+        <Box direction='row' align='baseline'>
+          <Heading>{stats.totalStars} </Heading><Paragraph size='large' >.Stars</Paragraph>
         </Box>
       );
     }
 
     return (
       <Grommet>
-        <Heading level={2}># Stars</Heading>
+        <Heading level={2}>Grommet Github Stats</Heading>
         {content}
       </Grommet>
     );
